@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color Palette - Fresh & Appetizing Food Theme */
+    --background: 0 0% 100%;
+    --foreground: 20 10% 10%;
+    
+    /* Primary - Vibrant Orange (appetite stimulating) */
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 24 100% 60%;
+    
+    /* Secondary - Fresh Green (healthy, natural) */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent - Warm Red (energy, excitement) */
+    --accent: 14 90% 53%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Muted - Soft neutrals */
+    --muted: 20 10% 96%;
+    --muted-foreground: 20 10% 40%;
+    
+    /* Card & Borders */
+    --card: 0 0% 100%;
+    --card-foreground: 20 10% 10%;
+    --border: 20 10% 90%;
+    --input: 20 10% 90%;
+    --ring: 24 95% 53%;
+    
+    /* Semantic Colors */
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(24 95% 53%), hsl(14 90% 53%));
+    --gradient-secondary: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    --gradient-hero: linear-gradient(135deg, hsl(24 95% 53% / 0.95), hsl(14 90% 53% / 0.9));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(20 10% 98%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(20 10% 10% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(20 10% 10% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(20 10% 10% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(20 10% 10% / 0.1);
+    --shadow-glow: 0 0 30px hsl(24 95% 53% / 0.3);
+    --shadow-food-card: 0 8px 24px hsl(20 10% 10% / 0.12);
+    
+    /* Animations */
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Border Radius */
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-full: 9999px;
+  }
+  
+  .dark {
+    --background: 20 10% 8%;
+    --foreground: 0 0% 98%;
+    
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 24 100% 60%;
+    
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 14 90% 53%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 20 10% 15%;
+    --muted-foreground: 20 10% 65%;
+    
+    --card: 20 10% 12%;
+    --card-foreground: 0 0% 98%;
+    --border: 20 10% 20%;
+    --input: 20 10% 20%;
+    --ring: 24 95% 53%;
+    
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(24 95% 53%), hsl(14 90% 53%));
+    --gradient-secondary: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    --gradient-hero: linear-gradient(135deg, hsl(24 95% 53% / 0.9), hsl(14 90% 53% / 0.85));
+    --gradient-subtle: linear-gradient(180deg, hsl(20 10% 8%), hsl(20 10% 12%));
+    
+    --shadow-food-card: 0 8px 24px hsl(0 0% 0% / 0.4);
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+  }
+  
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
+}
+
+@layer components {
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    @apply rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply opacity-80;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(24 95% 53% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(24 95% 53% / 0.6);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+  
+  .animate-slideInRight {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+  
+  .animate-scaleIn {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glass Effect */
+  .glass-effect {
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(0 0% 100% / 0.2);
+  }
+  
+  /* Hover Scale */
+  .hover-scale {
+    transition: transform var(--transition-smooth);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Food Card Hover */
+  .food-card {
+    transition: all var(--transition-smooth);
+  }
+  
+  .food-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-food-card);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
