@@ -1,38 +1,56 @@
-.App {
-    text-align: center;
+/* App-specific styles */
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.page-exit {
+  opacity: 1;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
 }
 
-.App-link {
-    color: #61dafb;
+/* Prevent flash of unstyled content */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Selection color */
+::selection {
+  background: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+}
+
+/* Image loading */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Link styles */
+a {
+  color: inherit;
+  text-decoration: none;
 }
